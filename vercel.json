@@ -8,11 +8,11 @@
   "crons": [
     {
       "path": "/api/cron/daily-maintenance",
-      "schedule": "* /5 * * *"
+      "schedule": "*/5 * * * *"
     },
     {
       "path": "/api/cron/weekly-reports",
-      "schedule": "* /5 * * *"
+      "schedule": "*/5 * * * *"
     }
   ]
 }
