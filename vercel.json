@@ -7,7 +7,7 @@
   "regions": ["sin1"],
   "crons": [
     {
-      "path": "api/cron/daily-maintenance",
+      "path": "/api/cron/daily-maintenance",
       "schedule": "* /5 * * *"
     }
   ]
