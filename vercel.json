@@ -5,16 +5,6 @@
   "devCommand": "pnpm run dev",
   "outputDirectory": ".next",
   "regions": ["sin1"],
-  "crons": [
-    {
-      "path": "/api/cron/maintenance",
-      "schedule": "0 0 * * *"
-    },
-    {
-      "path": "/api/cron/finance-report",
-      "schedule": "0 1 * * 1"
-    }
-  ],
   "headers": [
     {
       "source": "/(.*)",
@@ -32,6 +22,16 @@
           "value": "1; mode=block"
         }
       ]
+    }
+  ],
+  "crons": [
+    {
+      "path": "/api/cron/daily-maintenance",
+      "schedule": "0 0 * * *"
+    },
+    {
+      "path": "/api/cron/weekly-reports",
+      "schedule": "0 0 * * 0"
     }
   ]
 }
