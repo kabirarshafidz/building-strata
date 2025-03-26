@@ -9,10 +9,6 @@
     {
       "path": "/api/cron/daily-maintenance",
       "schedule": "0 0 * * *"
-    },
-    {
-      "path": "/api/cron/weekly-reports",
-      "schedule": "0 0 * * 0"
     }
   ]
 }
