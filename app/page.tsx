@@ -1,4 +1,4 @@
-import Link from "next/link"
+import Link from "next/link";
 import {
   Building,
   Calendar,
@@ -10,22 +10,35 @@ import {
   Bell,
   BarChart3,
   AlertCircle,
-} from "lucide-react"
+} from "lucide-react";
 
-import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
-import { DashboardHeader } from "@/components/dashboard-header"
-import { DashboardShell } from "@/components/dashboard-shell"
-import { RecentActivity } from "@/components/recent-activity"
-import { UpcomingMeetings } from "@/components/upcoming-meetings"
-import { MaintenanceRequests } from "@/components/maintenance-requests"
-import { Badge } from "@/components/ui/badge"
+import { Button } from "@/components/ui/button";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { DashboardHeader } from "@/components/dashboard-header";
+import { DashboardShell } from "@/components/dashboard-shell";
+import { RecentActivity } from "@/components/recent-activity";
+import { UpcomingMeetings } from "@/components/upcoming-meetings";
+import { MaintenanceRequests } from "@/components/maintenance-requests";
+import { Badge } from "@/components/ui/badge";
+
+import { HeroSection } from "@/components/hero-section";
 
 export default function DashboardPage() {
   return (
     <>
       <DashboardShell>
-        <DashboardHeader heading="Dashboard" text="Welcome to your strata management portal.">
+        <HeroSection />
+        <DashboardHeader
+          heading="Dashboard"
+          text="Welcome to your strata management portal."
+        >
           <div className="flex items-center gap-2">
             <Button variant="outline" size="sm">
               <Bell className="mr-2 h-4 w-4" />
@@ -44,7 +57,9 @@ export default function DashboardPage() {
         <div className="dashboard-grid">
           <Card className="stat-card card-hover">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-              <CardTitle className="text-sm font-medium">Administration Fund</CardTitle>
+              <CardTitle className="text-sm font-medium">
+                Administration Fund
+              </CardTitle>
               <div className="rounded-full bg-blue-100 p-2 dark:bg-blue-900">
                 <Wallet className="h-4 w-4 text-blue-600 dark:text-blue-300" />
               </div>
@@ -52,10 +67,18 @@ export default function DashboardPage() {
             <CardContent>
               <div className="text-2xl font-bold">$24,231.89</div>
               <div className="flex items-center pt-1">
-                <span className="text-xs font-medium text-green-600 dark:text-green-400">+2.5%</span>
-                <span className="ml-1 text-xs text-muted-foreground">from last quarter</span>
+                <span className="text-xs font-medium text-green-600 dark:text-green-400">
+                  +2.5%
+                </span>
+                <span className="ml-1 text-xs text-muted-foreground">
+                  from last quarter
+                </span>
               </div>
-              <Button variant="link" className="mt-2 h-auto p-0 text-xs" asChild>
+              <Button
+                variant="link"
+                className="mt-2 h-auto p-0 text-xs"
+                asChild
+              >
                 <Link href="/finances/admin-fund" className="flex items-center">
                   View details
                   <ArrowRight className="ml-1 h-3 w-3" />
@@ -66,7 +89,9 @@ export default function DashboardPage() {
 
           <Card className="stat-card card-hover">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-              <CardTitle className="text-sm font-medium">Capital Works Fund</CardTitle>
+              <CardTitle className="text-sm font-medium">
+                Capital Works Fund
+              </CardTitle>
               <div className="rounded-full bg-purple-100 p-2 dark:bg-purple-900">
                 <Building className="h-4 w-4 text-purple-600 dark:text-purple-300" />
               </div>
@@ -74,11 +99,22 @@ export default function DashboardPage() {
             <CardContent>
               <div className="text-2xl font-bold">$142,857.00</div>
               <div className="flex items-center pt-1">
-                <span className="text-xs font-medium text-green-600 dark:text-green-400">+18.2%</span>
-                <span className="ml-1 text-xs text-muted-foreground">from last year</span>
+                <span className="text-xs font-medium text-green-600 dark:text-green-400">
+                  +18.2%
+                </span>
+                <span className="ml-1 text-xs text-muted-foreground">
+                  from last year
+                </span>
               </div>
-              <Button variant="link" className="mt-2 h-auto p-0 text-xs" asChild>
-                <Link href="/finances/capital-works" className="flex items-center">
+              <Button
+                variant="link"
+                className="mt-2 h-auto p-0 text-xs"
+                asChild
+              >
+                <Link
+                  href="/finances/capital-works"
+                  className="flex items-center"
+                >
                   View details
                   <ArrowRight className="ml-1 h-3 w-3" />
                 </Link>
@@ -88,7 +124,9 @@ export default function DashboardPage() {
 
           <Card className="stat-card card-hover">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-              <CardTitle className="text-sm font-medium">Maintenance Requests</CardTitle>
+              <CardTitle className="text-sm font-medium">
+                Maintenance Requests
+              </CardTitle>
               <div className="rounded-full bg-amber-100 p-2 dark:bg-amber-900">
                 <AlertCircle className="h-4 w-4 text-amber-600 dark:text-amber-300" />
               </div>
@@ -109,7 +147,11 @@ export default function DashboardPage() {
                   4 in progress
                 </Badge>
               </div>
-              <Button variant="link" className="mt-2 h-auto p-0 text-xs" asChild>
+              <Button
+                variant="link"
+                className="mt-2 h-auto p-0 text-xs"
+                asChild
+              >
                 <Link href="/maintenance" className="flex items-center">
                   View all
                   <ArrowRight className="ml-1 h-3 w-3" />
@@ -123,7 +165,9 @@ export default function DashboardPage() {
           <Card className="col-span-4 card-hover">
             <CardHeader>
               <CardTitle>Recent Activity</CardTitle>
-              <CardDescription>Latest updates from your strata scheme</CardDescription>
+              <CardDescription>
+                Latest updates from your strata scheme
+              </CardDescription>
             </CardHeader>
             <CardContent>
               <RecentActivity />
@@ -138,7 +182,9 @@ export default function DashboardPage() {
           <Card className="col-span-3 card-hover">
             <CardHeader>
               <CardTitle>Upcoming Meetings</CardTitle>
-              <CardDescription>Scheduled committee and general meetings</CardDescription>
+              <CardDescription>
+                Scheduled committee and general meetings
+              </CardDescription>
             </CardHeader>
             <CardContent>
               <UpcomingMeetings />
@@ -155,7 +201,9 @@ export default function DashboardPage() {
           <Card className="col-span-4 card-hover">
             <CardHeader>
               <CardTitle>Maintenance Requests</CardTitle>
-              <CardDescription>Recent maintenance issues reported by owners</CardDescription>
+              <CardDescription>
+                Recent maintenance issues reported by owners
+              </CardDescription>
             </CardHeader>
             <CardContent>
               <MaintenanceRequests />
@@ -170,7 +218,9 @@ export default function DashboardPage() {
           <Card className="col-span-3 card-hover">
             <CardHeader>
               <CardTitle>Quick Actions</CardTitle>
-              <CardDescription>Common tasks for committee members</CardDescription>
+              <CardDescription>
+                Common tasks for committee members
+              </CardDescription>
             </CardHeader>
             <CardContent className="grid gap-2">
               <Button className="w-full justify-start" asChild>
@@ -179,19 +229,31 @@ export default function DashboardPage() {
                   Schedule Meeting
                 </Link>
               </Button>
-              <Button className="w-full justify-start" variant="outline" asChild>
+              <Button
+                className="w-full justify-start"
+                variant="outline"
+                asChild
+              >
                 <Link href="/notices/new">
                   <MessageSquare className="mr-2 h-4 w-4" />
                   Send Notice
                 </Link>
               </Button>
-              <Button className="w-full justify-start" variant="outline" asChild>
+              <Button
+                className="w-full justify-start"
+                variant="outline"
+                asChild
+              >
                 <Link href="/directory">
                   <Users className="mr-2 h-4 w-4" />
                   Owner Directory
                 </Link>
               </Button>
-              <Button className="w-full justify-start" variant="outline" asChild>
+              <Button
+                className="w-full justify-start"
+                variant="outline"
+                asChild
+              >
                 <Link href="/documents">
                   <FileText className="mr-2 h-4 w-4" />
                   View Documents
@@ -202,6 +264,5 @@ export default function DashboardPage() {
         </div>
       </DashboardShell>
     </>
-  )
+  );
 }
-

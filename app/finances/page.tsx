@@ -1,17 +1,34 @@
-import { ArrowUpDown, Download, Filter, FileText, Wallet, Building, CreditCard } from "lucide-react"
+import {
+  ArrowUpDown,
+  Download,
+  Filter,
+  FileText,
+  Wallet,
+  Building,
+  CreditCard,
+} from "lucide-react";
 
-import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { DashboardHeader } from "@/components/dashboard-header"
-import { DashboardShell } from "@/components/dashboard-shell"
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { Input } from "@/components/ui/input"
-import { Badge } from "@/components/ui/badge"
+import { Button } from "@/components/ui/button";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { DashboardHeader } from "@/components/dashboard-header";
+import { DashboardShell } from "@/components/dashboard-shell";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Input } from "@/components/ui/input";
+import { Badge } from "@/components/ui/badge";
 
 export default function FinancesPage() {
   return (
     <DashboardShell>
-      <DashboardHeader heading="Finances" text="Manage your strata scheme's financial accounts.">
+      <DashboardHeader
+        heading="Finances"
+        text="Manage your strata scheme's financial accounts."
+      >
         <div className="flex items-center gap-2">
           <Button>
             <Download className="mr-2 h-4 w-4" />
@@ -21,28 +38,18 @@ export default function FinancesPage() {
       </DashboardHeader>
 
       <Tabs defaultValue="admin-fund" className="space-y-4">
-        <TabsList className="grid w-full grid-cols-3 lg:w-[400px]">
-          <TabsTrigger value="admin-fund" className="flex items-center gap-2">
-            <Wallet className="h-4 w-4" />
-            <span className="hidden sm:inline">Administration Fund</span>
-            <span className="sm:hidden">Admin</span>
-          </TabsTrigger>
-          <TabsTrigger value="capital-works" className="flex items-center gap-2">
-            <Building className="h-4 w-4" />
-            <span className="hidden sm:inline">Capital Works Fund</span>
-            <span className="sm:hidden">Capital</span>
-          </TabsTrigger>
-          <TabsTrigger value="levies" className="flex items-center gap-2">
-            <CreditCard className="h-4 w-4" />
-            <span className="hidden sm:inline">Levy Payments</span>
-            <span className="sm:hidden">Levies</span>
-          </TabsTrigger>
+        <TabsList>
+          <TabsTrigger value="admin-fund">Administration Fund</TabsTrigger>
+          <TabsTrigger value="capital-works">Capital Works Fund</TabsTrigger>
+          <TabsTrigger value="levies">Levy Payments</TabsTrigger>
         </TabsList>
         <TabsContent value="admin-fund" className="space-y-4">
           <Card>
             <CardHeader>
               <CardTitle>Administration Fund Summary</CardTitle>
-              <CardDescription>Current balance and recent transactions for day-to-day expenses</CardDescription>
+              <CardDescription>
+                Current balance and recent transactions for day-to-day expenses
+              </CardDescription>
             </CardHeader>
             <CardContent className="space-y-6">
               <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
@@ -88,7 +95,10 @@ export default function FinancesPage() {
                       <Filter className="mr-2 h-4 w-4" />
                       Filter
                     </Button>
-                    <Input placeholder="Search transactions..." className="h-9 w-full sm:w-[200px]" />
+                    <Input
+                      placeholder="Search transactions..."
+                      className="h-9 w-full sm:w-[200px]"
+                    />
                   </div>
                 </div>
                 <div className="rounded-lg border">
@@ -123,12 +133,22 @@ export default function FinancesPage() {
                           {transaction.category}
                         </Badge>
                       </div>
-                      <div className={transaction.amount.startsWith("-") ? "text-red-500" : "text-green-500"}>
+                      <div
+                        className={
+                          transaction.amount.startsWith("-")
+                            ? "text-red-500"
+                            : "text-green-500"
+                        }
+                      >
                         {transaction.amount}
                       </div>
                       <div>
                         {transaction.receipt && (
-                          <Button variant="outline" size="sm" className="flex items-center gap-1">
+                          <Button
+                            variant="outline"
+                            size="sm"
+                            className="flex items-center gap-1"
+                          >
                             <FileText className="h-3 w-3" />
                             View
                           </Button>
@@ -146,7 +166,8 @@ export default function FinancesPage() {
             <CardHeader>
               <CardTitle>Capital Works Fund Summary</CardTitle>
               <CardDescription>
-                Current balance and planned expenditures for major repairs and improvements
+                Current balance and planned expenditures for major repairs and
+                improvements
               </CardDescription>
             </CardHeader>
             <CardContent>
@@ -210,8 +231,8 @@ export default function FinancesPage() {
                             project.status === "Approved"
                               ? "bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-400"
                               : project.status === "Under Review"
-                                ? "bg-yellow-100 text-yellow-800 dark:bg-yellow-900/30 dark:text-yellow-400"
-                                : "bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-400"
+                              ? "bg-yellow-100 text-yellow-800 dark:bg-yellow-900/30 dark:text-yellow-400"
+                              : "bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-400"
                           }
                         >
                           {project.status}
@@ -233,7 +254,9 @@ export default function FinancesPage() {
           <Card>
             <CardHeader>
               <CardTitle>Levy Payments</CardTitle>
-              <CardDescription>Track levy payments from all unit owners</CardDescription>
+              <CardDescription>
+                Track levy payments from all unit owners
+              </CardDescription>
             </CardHeader>
             <CardContent>
               <div className="space-y-4">
@@ -244,7 +267,10 @@ export default function FinancesPage() {
                       <Filter className="mr-2 h-4 w-4" />
                       Filter
                     </Button>
-                    <Input placeholder="Search by unit..." className="h-9 w-full sm:w-[200px]" />
+                    <Input
+                      placeholder="Search by unit..."
+                      className="h-9 w-full sm:w-[200px]"
+                    />
                   </div>
                 </div>
                 <div className="rounded-lg border">
@@ -271,8 +297,8 @@ export default function FinancesPage() {
                             payment.status === "Paid"
                               ? "bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-400"
                               : payment.status === "Overdue"
-                                ? "bg-red-100 text-red-800 dark:bg-red-900/30 dark:text-red-400"
-                                : "bg-yellow-100 text-yellow-800 dark:bg-yellow-900/30 dark:text-yellow-400"
+                              ? "bg-red-100 text-red-800 dark:bg-red-900/30 dark:text-red-400"
+                              : "bg-yellow-100 text-yellow-800 dark:bg-yellow-900/30 dark:text-yellow-400"
                           }
                         >
                           {payment.status}
@@ -292,7 +318,7 @@ export default function FinancesPage() {
         </TabsContent>
       </Tabs>
     </DashboardShell>
-  )
+  );
 }
 
 const transactions = [
@@ -336,7 +362,7 @@ const transactions = [
     amount: "+$750.00",
     receipt: false,
   },
-]
+];
 
 const capitalProjects = [
   {
@@ -367,7 +393,7 @@ const capitalProjects = [
     date: "Q2 2025",
     status: "Approved",
   },
-]
+];
 
 const levyPayments = [
   {
@@ -410,5 +436,4 @@ const levyPayments = [
     dueDate: "March 31, 2025",
     status: "Paid",
   },
-]
-
+];
